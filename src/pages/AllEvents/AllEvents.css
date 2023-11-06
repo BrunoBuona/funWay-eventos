@@ -1,0 +1,19 @@
+.main-container-ae{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    
+}
+.main-container-ae > h1{
+    font-weight: 600;
+    font-size: 48px;
+    text-transform: uppercase;
+}
+.table-all-events{
+    width: 90%;
+    height: auto;
+}

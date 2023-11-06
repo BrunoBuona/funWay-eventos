@@ -1,0 +1,13 @@
+.right {
+    background-image: url('https://image.lexica.art/full_jpg/0c855777-8378-4f2c-9366-f4390ef4eeeb');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    transition: 1s;
+}

@@ -1,0 +1,73 @@
+.AdminNav {
+  background-color: #f2f4f6;
+  border-right: grey 1px solid;
+  height: 100%;
+  width: 250px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.link-admin-nav{
+  text-decoration: none;
+  color: black;
+  padding: 1.2rem 1.2rem;
+  width: 180px;
+  z-index: 2;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.08rem;
+  width: 100%;
+}
+
+@keyframes coloredRaimbow {
+  0% {
+    color: #db25e5;
+  }
+  25%{
+    color: #e525c2;
+  }
+  50% {
+    color: #e52572;
+  }
+  75%{
+    color: #e525c2;
+  }
+  100% {
+    color: #db25e5;
+  }
+  
+}
+.logo-block-adminNav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  width: 100%;
+  height: 150px;
+}
+.go-back-admin{
+  text-decoration: none;
+  color: black;
+  padding: 1.2rem 1.2rem;
+  width: 180px;
+  z-index: 2;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.08rem;
+  width: 100%;
+}
+.link-admin-nav:hover{
+  animation: coloredRaimbow 3s infinite;
+}
+.go-back-admin:hover{
+  animation: coloredRaimbow 3s infinite;
+}
+@media (max-width: 768px) {
+  .AdminNav {
+    padding-top: 60px;
+    width: 100%;
+    position: absolute;
+  }
+}
+
+  

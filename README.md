@@ -1,22 +1,9 @@
-# POSSE 🔖
+# FUNWAY 🔖 
 
-POSSE is a web application that allows users to access events in Argentina.
+FUNWAY is a web application that allows users to access events in Argentina.
 
-Features:
 
-- Sign In / Sign Up
-- Controllers to Create, Edit & Delete: Events, Artists, Drinks, Locations.
-- Controllers to Validate: Tickets of Events.
-- Controllers to Change Carrousel Images
-- User Controllers to change their own password.
-- User Controllers to get their Orders.
-- User Profile
-- Landing Page with a Carrousel of Images
-- Events Page with All Available Events
-- MercadoPago Payment Gateway (C1-API)
-  
-
-# Re-Builded with 🛠️ (from Old Project "TicketPass")
+# Re-Builded with 🛠️ (from Old Project "POSSE EVENTS")
 * [MongoDB](https://www.mongodb.com/) 
 * [Express](https://expressjs.com/es/) 
 * [React](https://reactjs.org/) 

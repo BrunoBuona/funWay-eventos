@@ -21,7 +21,7 @@ const login = createAsyncThunk('login', async (datos) => {
 const reLogin = createAsyncThunk('reLogin', async (token) => {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
     try {
-        let user = await axios.post(`http://localhost:8000/api/auth/token`, null, headers)
+        let user = await axios.post(`${BASE_URL}/api/auth/token`, null, headers)
         return {
             success: true,
             response: {

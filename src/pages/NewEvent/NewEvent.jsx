@@ -1,10 +1,35 @@
 import AdminTopNavbar from "../../layouts/Admin/AdminTopNavbar/AdminTopNavbar"
+import { useRef } from "react"
 import './NewEvent.css'
-import { useState } from "react"
 
 export default function NewEvent() {
-    const [eventPrice, setEventPrice] = useState(0)
-    return (
+    const clientRef = useRef()
+    const dateRef = useRef()
+    const timeRef = useRef()
+    const placeRef = useRef()
+    const categoryRef = useRef()
+    const capacityRef = useRef()
+    const organizerRef = useRef()
+    const phoneRef = useRef()
+    const emailRef = useRef()
+    const animatorsRef = useRef()
+    const extrasRef = useRef()
+
+    const data = {
+        client: '',
+        date: '',
+        time: '',
+        place: '',
+        category: '',
+        capacity: '',
+        organizer: '',
+        phone: '',
+        email: '',
+        animators: [],
+        extras: [],
+    }
+
+    return(
         <>
             <AdminTopNavbar
                 otherLinks={[

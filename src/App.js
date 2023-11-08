@@ -19,9 +19,8 @@ import AllEvents from "./pages/AllEvents/AllEvents";
 export default function App() {
   const dispatch = useDispatch()
   const { reLogin } = userActions
-  const {online, role} = useSelector(state => state.user.user)
+  const {online} = useSelector(state => state.user)
   const [loading, setLoading] = useState(true)
-
   useEffect(() => {
     isLoading()
   }, []);

@@ -3,41 +3,66 @@ import './NewEvent.css'
 import { useRef } from "react"
 import axios from "axios"
 import {BASE_URL} from '../../api/url'
+import Swal from "sweetalert2"
 
 export default function NewEvent() {
-    const {token} = JSON.parse(localStorage.getItem('token'))
-    const clientRef = useRef("")
-    const dateRef = useRef()
-    const timeArrivalRef = useRef()
-    const timeEventRef = useRef()
-    const placeRef = useRef()
-    const categoryRef = useRef()
-    const capacityRef = useRef()
-    const organizerRef = useRef()
-    const phoneRef = useRef()
-    const emailRef = useRef()
-    const animatorsRef = useRef()
-    const extrasRef = useRef()
+    const {token} = JSON.parse(localStorage.getItem('token'));
+    const cliente = useRef("");
+    const fecha_evento = useRef("");
+    const hora_evento = useRef("");
+    const localizacion = useRef("");
+    const tipo_evento = useRef("");
+    const adicionales = useRef("");
+    const capacidad = useRef("");
 
     const createEvent = async () => {
-        const eventData = {
-            cliente: clientRef.current.value,
-        };
-
         const config = {
             headers: {
                 Authorization: `Bearer ${token}` // Agregar el token como Bearer
             }
         };
+        const data = {
+            cliente: cliente.current.value,
+            localizacion: localizacion.current.value,
+            fecha_evento: fecha_evento.current.value,
+            hora_evento: hora_evento.current.value,
+            tipo_evento: tipo_evento.current.value,
+            adicionales: adicionales.current.value,
+            capacidad: capacidad.current.value
+        };
 
-        try {
-            const response = await axios.post(`${BASE_URL}/api/events/`, eventData, config);
-            alert("Evento creado exitosamente", response.data);
-        } catch (error) {
-            alert("Error al crear el evento");
-            console.log(error);
-        }
-    }
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "Se creará un nuevo evento.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1D4ED8',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Crear evento'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.post(`${BASE_URL}/api/events/`, data, config)
+                    .then((response) => {
+                        Swal.fire({
+                            title: 'Evento creado exitosamente',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        });
+                    })
+                    .catch((error) => {
+                        Swal.fire({
+                            title: 'Error al crear el evento',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        });
+                    });
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info');
+            } else if (result.isDismissed) {
+                Swal.fire('Changes are not saved', '', 'info');
+            }
+        });
+    };
 
     return (
         <>
@@ -57,27 +82,23 @@ export default function NewEvent() {
                     <div className="ce-main-form-container">
                         <div className="ce-main-form-container-input">
                             <label htmlFor="client">Nombre del Cliente</label>
-                            <input ref={clientRef} type="text" name="client" id="client" />
+                            <input ref={cliente} type="text" name="client" id="client" />
                         </div>
                         <div className="ce-main-form-container-input">
                             <label htmlFor="date">Fecha</label>
-                            <input ref={dateRef} type="date" name="date" id="date" />
-                        </div>
-                        <div className="ce-main-form-container-input">
-                            <label htmlFor="timeArrival">Hora de Llegada</label>
-                            <input ref={timeArrivalRef} type="time" name="timeArrival" id="timeArrival" />
+                            <input ref={fecha_evento} type="date" name="date" id="date" />
                         </div>
                         <div className="ce-main-form-container-input">
                             <label htmlFor="timeEvent">Hora del Evento</label>
-                            <input ref={timeEventRef} type="time" name="timeEvent" id="timeEvent" />
+                            <input ref={hora_evento} type="time" name="timeEvent" id="timeEvent" />
                         </div>
                         <div className="ce-main-form-container-input">
                             <label htmlFor="place">Lugar</label>
-                            <input ref={placeRef} type="text" name="place" id="place" />
+                            <input ref={localizacion} type="text" name="place" id="place" />
                         </div>
                         <div className="ce-main-form-container-input">
                             <label htmlFor="category">Tipo de evento</label>
-                            <select ref={categoryRef} name="category" id="category">
+                            <select ref={tipo_evento} name="category" id="category">
                                 <option value="1">Seleccionar</option>
                                 <option value="1">Cumpleaños Niños</option>
                                 <option value="3">Cumpleaños XV</option>
@@ -85,8 +106,8 @@ export default function NewEvent() {
                             </select>
                         </div>
                         <div className="ce-main-form-container-input">
-                            <label htmlFor="extras">Adicionales (Varían según tipo de evento)</label>
-                            <select ref={extrasRef} name="extras" id="extras">
+                            <label htmlFor="extras">Adicionales Contratados</label>
+                            <select ref={adicionales} name="extras" id="extras">
                                 <option value="1">Seleccionar</option>
                                 <option value="1">Inflable</option>
                                 <option value="2">Celebridad</option>
@@ -96,26 +117,10 @@ export default function NewEvent() {
                             </select>
                         </div>
                         <div className="ce-main-form-container-input">
-                            <label htmlFor="capacity">Cantidad Invitados</label>
-                            <input ref={capacityRef} type="number" name="capacity" id="capacity" placeholder="En números, indica la cantidad de invitados del evento." />
+                            <label htmlFor="capacity">N° de Invitados</label>
+                            <input ref={capacidad} type="number" name="capacity" id="capacity" placeholder="En números, indica la cantidad de invitados del evento." />
                         </div>
-                        <div className="ce-main-form-container-input">
-                            <label htmlFor="animators">Asignar Animadores</label>
-                            <input ref={animatorsRef} type="search" placeholder="Escribe el nombre del animador." />
-                        </div>
-                        <div className="ce-main-form-container-input">
-                            <label htmlFor="organizer">Salón</label>
-                            <input ref={organizerRef} type="text" name="organizer" id="organizer" />
-                        </div>
-                        <div className="ce-main-form-container-input">
-                            <label htmlFor="phone">Teléfono</label>
-                            <input ref={phoneRef} type="text" name="phone" id="phone" />
-                        </div>
-                        <div className="ce-main-form-container-input">
-                            <label htmlFor="email">Email</label>
-                            <input ref={emailRef} type="email" name="email" id="email" />
-                        </div>
-                        <h6 style={{ color: 'grey' }}>Los datos dinámicos no están disponibles durante la BETA.</h6>
+                        <h6 style={{ color: 'grey' }}>Esta pagina funciona correctamente. 09/11/23.</h6>
                         <button className="btn-confirm-ne" onClick={createEvent}>Crear nuevo evento</button>
                     </div>
                 </div>

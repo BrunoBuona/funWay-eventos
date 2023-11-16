@@ -21,7 +21,7 @@ export default function AllEvents() {
                 ]}
             />
                         <div className="container-mec">
-                <h1 style={{ textAlign: 'center' }}>Lista de Eventos</h1>
+                <h1 style={{ textAlign: 'center' }}>Lista de eventos</h1>
                 <div>
                     <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center'}}>
                     <section className="table-my-events">

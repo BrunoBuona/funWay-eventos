@@ -8,6 +8,8 @@ import Swal from "sweetalert2"
 export default function NewEvent() {
     const {token} = JSON.parse(localStorage.getItem('token'));
     const cliente = useRef("");
+    const cliente_tel = useRef("");
+    const cliente_mail = useRef("");
     const fecha_evento = useRef("");
     const hora_evento = useRef("");
     const localizacion = useRef("");
@@ -18,11 +20,14 @@ export default function NewEvent() {
     const createEvent = async () => {
         const config = {
             headers: {
-                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MzJjNWI4NGIwMTY3ODk4Y2ZkNjljNSIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoidGVzdGVyQGdtYWlsLmNvbSIsIm9ubGluZSI6dHJ1ZSwidmVyaWZpZWQiOiJ0cnVlIiwiaWF0IjoxNjk5NDUyMDk3fQ.9EhV_9Ytz7P29vB84LbX8gRugzUuz7c_XZmkAUxBxKI` // Agregar el token como Bearer
+                Authorization: `Bearer ${token}` 
             }
         };
         const data = {
+            owner_event: "Bruno",
             cliente: cliente.current.value,
+            cliente_tel: cliente_tel.current.value,
+            cliente_email: cliente_mail.current.value,
             localizacion: localizacion.current.value,
             fecha_evento: fecha_evento.current.value,
             hora_evento: hora_evento.current.value,
@@ -77,7 +82,7 @@ export default function NewEvent() {
             />
             <main className="ce-main-container">
                 <div className="ce-main-titles">
-                    <h1>CREAR NUEVO EVENTO</h1>
+                    <h1>Crear nuevo evento</h1>
                 </div>
                 <div className="ce-main-form">
                     <div className="ce-main-form-container">
@@ -87,11 +92,11 @@ export default function NewEvent() {
                         </div>
                         <div className="ce-main-form-container-input">
                             <label htmlFor="client">Numero de Contacto</label>
-                            <input ref={cliente} type="text" name="client" id="client" />
+                            <input ref={cliente_tel} type="tel" name="number_tel" id="number_tel" />
                         </div>
                         <div className="ce-main-form-container-input">
                             <label htmlFor="client">Correo de Contacto</label>
-                            <input ref={cliente} type="text" name="client" id="client" />
+                            <input ref={cliente_mail} type="email" name="email" id="email" />
                         </div>
                         <div className="ce-main-form-container-input">
                             <label htmlFor="date">Fecha</label>

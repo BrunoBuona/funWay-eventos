@@ -17,6 +17,19 @@ export default function NewEvent() {
     const adicionales = useRef("");
     const capacidad = useRef("");
 
+    const resetForm = () => {
+        // Utiliza el método current para acceder al valor del campo y luego límpialo
+        cliente.current.value = "";
+        cliente_tel.current.value = "";
+        cliente_mail.current.value = "";
+        localizacion.current.value = "";
+        fecha_evento.current.value = "";
+        hora_evento.current.value = "";
+        tipo_evento.current.value = "";
+        adicionales.current.value = "";
+        capacidad.current.value = "";
+    };
+
     const createEvent = async () => {
         const config = {
             headers: {
@@ -53,6 +66,7 @@ export default function NewEvent() {
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         });
+                        resetForm();
                     })
                     .catch((error) => {
                         Swal.fire({

@@ -11,7 +11,6 @@ import logo from './logo.png'
 import { useSelector } from "react-redux";
 export default function AdminNav({ isMobile, menuIsOpen }) {
   let user = useSelector(user => user.user.user)
-  console.log(user)
   return (
     <AnimatePresence>
       {(!isMobile || (isMobile && menuIsOpen)) && (

@@ -15,6 +15,7 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Contact from "./pages/Contact/Contact";
 import NewEvent from "./pages/NewEvent/NewEvent";
 import AllEvents from "./pages/AllEvents/AllEvents";
+import MyEventsCreated from "./pages/MyEventsCreated/MyEventsCreated";
 
 export default function App() {
   const dispatch = useDispatch()
@@ -43,6 +44,7 @@ let isLoading = async() => {
               <Route path="inicio" element={<AdminHome />}/>
               <Route path="new-event" element={<NewEvent />}/>
               <Route path="all-events" element={<AllEvents />}/>
+              <Route path="my-events" element={<MyEventsCreated />}/>
             </Route>  
         </Route>
         <Route path="/" element={<Main />} >

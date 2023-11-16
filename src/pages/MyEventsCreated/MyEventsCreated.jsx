@@ -1,15 +1,33 @@
-import React from 'react';
+import { useState, useEffect } from "react";
 import AdminTopNavbar from "../../layouts/Admin/AdminTopNavbar/AdminTopNavbar";
-import './AllEvents.css';
-import { Link, useNavigate } from "react-router-dom";
-import { FaBell } from 'react-icons/fa';
+import './MyEventsCreated.css';
+import { useNavigate } from "react-router-dom";
 
-export default function AllEvents() {
-    const navigate = useNavigate();
 
+
+export default function MyEventsCreated() {
+    const [events, setEvents] = useState([]);
+    const navigate = useNavigate()
     function redirectToEvent(id) {
         navigate(`/event?id=${id}`);
     }
+
+    function EventCard(event) {
+        return (
+            <div>
+                <h1>EventCard {event}</h1>
+            </div>
+        )
+
+    }
+
+    useEffect(() => {
+        // const fetchEvents = async () => {
+        //   const response = await axios.get("/api/events/created");
+        //   setEvents(response.data);
+        // };
+        // fetchEvents();
+    }, []);
 
     return (
         <>
@@ -20,8 +38,8 @@ export default function AllEvents() {
                     { path: '/exit', label: 'Exit' },
                 ]}
             />
-                        <div className="container-mec">
-                <h1 style={{ textAlign: 'center' }}>Lista de Eventos</h1>
+            <div className="container-mec">
+                <h1 style={{ textAlign: 'center' }}>Mis eventos creados</h1>
                 <div>
                     <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center'}}>
                     <section className="table-my-events">

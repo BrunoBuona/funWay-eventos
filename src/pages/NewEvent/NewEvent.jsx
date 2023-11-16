@@ -18,7 +18,7 @@ export default function NewEvent() {
     const createEvent = async () => {
         const config = {
             headers: {
-                Authorization: `Bearer ${token}` // Agregar el token como Bearer
+                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MzJjNWI4NGIwMTY3ODk4Y2ZkNjljNSIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoidGVzdGVyQGdtYWlsLmNvbSIsIm9ubGluZSI6dHJ1ZSwidmVyaWZpZWQiOiJ0cnVlIiwiaWF0IjoxNjk5NDUyMDk3fQ.9EhV_9Ytz7P29vB84LbX8gRugzUuz7c_XZmkAUxBxKI` // Agregar el token como Bearer
             }
         };
         const data = {
@@ -55,6 +55,7 @@ export default function NewEvent() {
                             icon: 'error',
                             confirmButtonText: 'Ok'
                         });
+                        console.log(error)
                     });
             } else if (result.isDenied) {
                 Swal.fire('Changes are not saved', '', 'info');
@@ -82,6 +83,14 @@ export default function NewEvent() {
                     <div className="ce-main-form-container">
                         <div className="ce-main-form-container-input">
                             <label htmlFor="client">Nombre del Cliente</label>
+                            <input ref={cliente} type="text" name="client" id="client" />
+                        </div>
+                        <div className="ce-main-form-container-input">
+                            <label htmlFor="client">Numero de Contacto</label>
+                            <input ref={cliente} type="text" name="client" id="client" />
+                        </div>
+                        <div className="ce-main-form-container-input">
+                            <label htmlFor="client">Correo de Contacto</label>
                             <input ref={cliente} type="text" name="client" id="client" />
                         </div>
                         <div className="ce-main-form-container-input">
@@ -120,7 +129,6 @@ export default function NewEvent() {
                             <label htmlFor="capacity">N° de Invitados</label>
                             <input ref={capacidad} type="number" name="capacity" id="capacity" placeholder="En números, indica la cantidad de invitados del evento." />
                         </div>
-                        <h6 style={{ color: 'grey' }}>Esta pagina funciona correctamente. 09/11/23.</h6>
                         <button className="btn-confirm-ne" onClick={createEvent}>Crear nuevo evento</button>
                     </div>
                 </div>

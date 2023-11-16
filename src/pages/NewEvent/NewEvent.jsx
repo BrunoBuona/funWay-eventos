@@ -4,6 +4,7 @@ import { useRef } from "react"
 import axios from "axios"
 import {BASE_URL} from '../../api/url'
 import Swal from "sweetalert2"
+import { useSelector } from "react-redux"
 
 export default function NewEvent() {
     const {token} = JSON.parse(localStorage.getItem('token'));
@@ -16,6 +17,7 @@ export default function NewEvent() {
     const tipo_evento = useRef("");
     const adicionales = useRef("");
     const capacidad = useRef("");
+    const userId = useSelector(state => state.user.user.id);
 
     const resetForm = () => {
         // Utiliza el método current para acceder al valor del campo y luego límpialo
@@ -37,7 +39,7 @@ export default function NewEvent() {
             }
         };
         const data = {
-            owner_event: "Bruno",
+            owner_event: userId,
             cliente: cliente.current.value,
             cliente_tel: cliente_tel.current.value,
             cliente_email: cliente_mail.current.value,
@@ -128,20 +130,20 @@ export default function NewEvent() {
                             <label htmlFor="category">Tipo de evento</label>
                             <select ref={tipo_evento} name="category" id="category">
                                 <option value="1">Seleccionar</option>
-                                <option value="1">Cumpleaños Niños</option>
-                                <option value="3">Cumpleaños XV</option>
-                                <option value="4">Casamiento</option>
+                                <option value="Cumpleaños Niños">Cumpleaños Niños</option>
+                                <option value="Cumpleaños XV">Cumpleaños XV</option>
+                                <option value="Casamiento">Casamiento</option>
                             </select>
                         </div>
                         <div className="ce-main-form-container-input">
                             <label htmlFor="extras">Adicionales Contratados</label>
                             <select ref={adicionales} name="extras" id="extras">
                                 <option value="1">Seleccionar</option>
-                                <option value="1">Inflable</option>
-                                <option value="2">Celebridad</option>
-                                <option value="3">Catering</option>
-                                <option value="4">Fotografía</option>
-                                <option value="5">A domicilio</option>
+                                <option value="Inflable">Inflable</option>
+                                <option value="Celebridad">Celebridad</option>
+                                <option value="Catering">Catering</option>
+                                <option value="Fotografia">Fotografía</option>
+                                <option value="+5">Todos los anteriores</option>
                             </select>
                         </div>
                         <div className="ce-main-form-container-input">

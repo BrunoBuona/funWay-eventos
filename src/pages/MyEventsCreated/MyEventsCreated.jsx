@@ -2,33 +2,20 @@ import { useState, useEffect } from "react";
 import AdminTopNavbar from "../../layouts/Admin/AdminTopNavbar/AdminTopNavbar";
 import './MyEventsCreated.css';
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 
 export default function MyEventsCreated() {
     const [events, setEvents] = useState([]);
     const navigate = useNavigate()
+    let id = useSelector(state => state.user)
+    console.log(id)
     function redirectToEvent(id) {
         navigate(`/event?id=${id}`);
     }
-
-    function EventCard(event) {
-        return (
-            <div>
-                <h1>EventCard {event}</h1>
-            </div>
-        )
-
-    }
-
-    useEffect(() => {
-        // const fetchEvents = async () => {
-        //   const response = await axios.get("/api/events/created");
-        //   setEvents(response.data);
-        // };
-        // fetchEvents();
-    }, []);
-
+  
+    console.log(events)
     return (
         <>
             <AdminTopNavbar

@@ -45,7 +45,7 @@ export default function AdminAuditory() {
         links={[
           { path: '#', label: '' },
         ]} />
-        <div className="all-users-main">
+        <div className="all-users-main" style={{padding:'15px'}}>
             <h1 className="all-users-title">REGISTRO DE AUDITORIA WEB</h1>
             <h3>Este registro muestra todas las acciones que modifican registros en la base de datos.</h3>
 

@@ -61,6 +61,9 @@
 .admin {
   background-image: url("https://img.freepik.com/vector-premium/icono-plano-administrador-tareas_9206-4758.jpg");
 }
+.cliente{
+  background-image: url("https://www.pngmart.com/files/21/Adult-PNG.png");
+}
 .p-c-s-picture {
   display: flex;
   flex-direction: column;

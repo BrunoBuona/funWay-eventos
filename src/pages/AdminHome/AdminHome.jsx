@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function AdminHome() {
   const navigate = useNavigate();
@@ -43,15 +44,15 @@ export default function AdminHome() {
         ]} />
       <div className="AdminHome" style={{ maxWidth: '100%' }}>
         <main style={{ maxWidth: '100%', width: '100%', minHeight: '90vh', height: 'auto', display: 'flex', alignContent: 'center', flexDirection: 'column', flexWrap: 'wrap' }}>
-          {user?.verified == 'true' ? (
+          {user?.verified === 'true' ? (
             <div className="alert-account-verified" style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
               <p>Tu cuenta fue verificada y aprobada. Puedes utilizar sin restricciones la plataforma.</p>
             </div>
-          ) : user?.verified == 'banned' ? (
+          ) : user?.verified === 'banned' ? (
             <div className="alert-account-blocked" style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
               <p>Tu cuenta fue bloqueada por un administrador. No puedes utilizar la plataforma.</p>
             </div>
-          ) : (
+          ) : user?.verified === 'false' (
             <div className="alert-account" style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
               <p>Tu cuenta aún está pendiente de revisión y aprobación. No podrás usar la plataforma hasta ser verificado.</p>
             </div>
@@ -69,7 +70,7 @@ export default function AdminHome() {
                       <>
                         <h2>2</h2>
                         <h3>Eventos creados</h3>
-                        <button>Ver todos</button>
+                        <button><Link style={{textDecoration:'none',color:'black'}} to='/menu/my-events'>Ver todos</Link></button>
                       </>
                       :
                       role === 'admin' ?
@@ -94,42 +95,7 @@ export default function AdminHome() {
             <section style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flexGrow: '1' }}>
               {
                 role === 'salon' ?
-                  <>
-                    <h2>Ultimos 5 eventos creados</h2>
-                    <table className="funway-table">
-                      <thead>
-                        <tr>
-                          <th>Cliente</th>
-                          <th>Fecha</th>
-                          <th>Hora</th>
-                          <th>Categoría</th>
-                          <th>Localización</th>
-                          <th>Invitados</th>
-                          <th>Adicionales</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr onClick={() => redirectToEvent(1)}>
-                          <td>Sandra Muñoz</td>
-                          <td>22/12/2023</td>
-                          <td>18:55hs</td>
-                          <td>Cumpleaños XV</td>
-                          <td>Nuñez 2048, Saavedra</td>
-                          <td>40</td>
-                          <td>0</td>
-                        </tr>
-                        <tr onClick={() => redirectToEvent(2)}>
-                          <td>Rosalia Fefel</td>
-                          <td>18/12/2023</td>
-                          <td>10:30hs</td>
-                          <td>Cumpleaños Infantil</td>
-                          <td>Bartolome Mitre 4088, Almagro</td>
-                          <td>51</td>
-                          <td>+8</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </>
+                  null
                   :
                   role === 'admin' ?
                     null

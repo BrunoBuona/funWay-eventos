@@ -42,7 +42,11 @@ export default function AdminAllUsers() {
     };
     return (
         <div className="all-users-main">
+            <div id="titles-au-m" style={{display:'flex',justifyContent:'space-evenly',alignItems:'center',flexGrow:'1',width:'100%',height:'10vh'}}>
+            <button>Filtros de Busqueda</button>
             <h1 className="all-users-title">LISTA DE USUARIOS</h1>
+            <button className="latido-animacion">Solicitudes (5)</button>
+            </div>
             <table className="all-users-table">
                 <thead>
                     <tr>
@@ -50,6 +54,7 @@ export default function AdminAllUsers() {
                         <th>Nombre & Apellido</th>
                         <th>Email</th>
                         <th>Rol</th>
+                        <th>Estado de la Cuenta</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -66,6 +71,7 @@ export default function AdminAllUsers() {
                             <td>{user?.name}</td>
                             <td>{user.email}</td>
                             <td>{user.role}</td>
+                            <td>{user.verified === 'verified' ? 'VERIFICADO' : user.verified === 'banned' ? 'BANEADO' : 'NO VERIFICADO'}</td>
                             <td>
                                 <Link to={`/admin/user/${user.id}`}>
                                     <MdModeEdit size={'1.8em'} />

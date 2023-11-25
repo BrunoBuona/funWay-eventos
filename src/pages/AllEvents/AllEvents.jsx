@@ -32,12 +32,15 @@ export default function AllEvents() {
                 ]}
             />
             <div className="container-mec">
-                <h1 style={{ textAlign: 'center' }}>Lista de eventos</h1>
+                <div style={{display:'flex',justifyContent:'space-evenly',alignItems:'center'}}>
+                    <button className="filters-btn" style={{ width: '250px' }}>Filtros de Busqueda</button>
+                    <h1 className='all-users-title' style={{ textAlign: 'center' }}>LISTA DE EVENTOS</h1>
+                    <button className="filters-btn" style={{ width: '250px',visibility:'hidden' }}>Filtros de Busqueda</button>
+                </div>
                 <div>
                     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
                         <section className="table-my-events">
-                            <button className="filters-btn" style={{ width: '250px' }}>Filtros de Busqueda</button>
-                            <table className="funway-table text-center">
+                            <table className="all-users-table text-center">
                                 <thead>
                                     <tr>
                                         {/* <th>Creador</th> */}

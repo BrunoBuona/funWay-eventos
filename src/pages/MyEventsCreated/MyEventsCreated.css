@@ -17,13 +17,15 @@
     padding: 2rem;
 }
 .filters-btn{
-    font-size: 18px;
-    font-weight: 600;
-    color: #000000;
-    background-color: #9aff78;
-    border: 1px solid #329a0f;
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #009879;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
 }

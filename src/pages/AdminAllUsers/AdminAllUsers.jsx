@@ -4,6 +4,7 @@ import axios from "axios";
 import { BASE_URL } from "../../api/url";
 import { MdModeEdit } from "react-icons/md";
 import './AdminAllUsers.css';
+import AdminTopNavbar from "../../layouts/Admin/AdminTopNavbar/AdminTopNavbar";
 
 export default function AdminAllUsers() {
     const [users, setUsers] = useState([]);
@@ -41,13 +42,18 @@ export default function AdminAllUsers() {
         setCurrentPage(pageNumber);
     };
     return (
-        <div className="all-users-main">
+        <>
+        <AdminTopNavbar
+        links={[
+          { path: '#', label: '' },
+        ]} />
+        <div style={{padding:'20px'}} className="all-users-main">
             <div id="titles-au-m" style={{display:'flex',justifyContent:'space-evenly',alignItems:'center',flexGrow:'1',width:'100%',height:'10vh'}}>
             <button>Filtros de Busqueda</button>
             <h1 className="all-users-title">LISTA DE USUARIOS</h1>
             <button className="latido-animacion">Solicitudes (5)</button>
             </div>
-            <table className="all-users-table">
+            <table  className="all-users-table">
                 <thead>
                     <tr>
                         <th>Imagen de Perfil</th>
@@ -71,7 +77,7 @@ export default function AdminAllUsers() {
                             <td>{user?.name}</td>
                             <td>{user.email}</td>
                             <td>{user.role}</td>
-                            <td>{user.verified === 'verified' ? 'VERIFICADO' : user.verified === 'banned' ? 'BANEADO' : 'NO VERIFICADO'}</td>
+                            <td>{user.verified === 'true' ? 'VERIFICADO' : user.verified === 'banned' ? 'BANEADO' : 'NO VERIFICADO'}</td>
                             <td>
                                 <Link to={`/admin/user/${user.id}`}>
                                     <MdModeEdit size={'1.8em'} />
@@ -90,5 +96,6 @@ export default function AdminAllUsers() {
                 ))}
             </div>
         </div>
+        </>
     );
 }

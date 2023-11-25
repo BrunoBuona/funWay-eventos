@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../api/url";
 import './AdminAuditory.css';
-
+import AdminTopNavbar from "../../layouts/Admin/AdminTopNavbar/AdminTopNavbar";
 
 export default function AdminAuditory() {
     const [auditories, setAuditories] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [auditoriesPerPage, setAuditoriesPerPage] = useState(3);
+    const [auditoriesPerPage, setAuditoriesPerPage] = useState(5);
 
     useEffect(() => {
         const fetchAuditories = async () => {
@@ -40,8 +40,15 @@ export default function AdminAuditory() {
         setCurrentPage(pageNumber);
     };
     return (
+        <>
+        <AdminTopNavbar
+        links={[
+          { path: '#', label: '' },
+        ]} />
         <div className="all-users-main">
-            <h1 className="all-users-title">LISTA DE AUDITORIAS</h1>
+            <h1 className="all-users-title">REGISTRO DE AUDITORIA WEB</h1>
+            <h3>Este registro muestra todas las acciones que modifican registros en la base de datos.</h3>
+
             <table className="all-users-table">
                 <thead>
                     <tr>
@@ -62,7 +69,7 @@ export default function AdminAuditory() {
                     ))}
                 </tbody>
             </table>
-            <div className="pagination">
+            {/* <div className="pagination">
             <div className="pagination" style={{gap:'1rem'}}>
                 {Array.from({ length: totalPages }, (_, index) => (
                     <button className="aau-btn" key={index + 1} onClick={() => handlePageChange(index + 1)}>
@@ -70,7 +77,8 @@ export default function AdminAuditory() {
                     </button>
                 ))}
             </div>
-            </div>
+            </div> */}
         </div>
+        </>
     );
 }

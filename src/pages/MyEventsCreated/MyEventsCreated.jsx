@@ -31,7 +31,7 @@ export default function MyEventsCreated() {
                     <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center'}}>
                     <section className="table-my-events">
                     <button className="filters-btn" style={{width:'250px'}}>Filtros de Busqueda</button>
-                        <table className="funway-table text-center">
+                        <table className="all-users-table text-center">
                             <thead>
                                 <tr>
                                     <th>Cliente</th>

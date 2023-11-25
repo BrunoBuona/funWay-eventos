@@ -1,181 +1,183 @@
-.alert-account{
-    width: 80%;
+.alert-account {
+  width: 80%;
+  font-size: 16px;
+  height: 40px;
+  background-color: #9aff78;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0px;
+  cursor: default;
+  line-height: 40px;
+  transition: all 0.3s ease-in-out;
+  z-index: 4;
+}
+.alert-account-verified {
+  width: 80%;
+  font-size: 16px;
+  height: 40px;
+  background-color: #ff78fd;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0px;
+  cursor: default;
+  line-height: 40px;
+  transition: all 0.3s ease-in-out;
+  z-index: 4;
+}
+.alert-account-blocked {
+  width: 80%;
+  font-size: 16px;
+  height: 40px;
+  background-color: #ff7878;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0px;
+  cursor: default;
+  line-height: 40px;
+  transition: all 0.3s ease-in-out;
+  z-index: 4;
+}
+
+.profile-card-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: start;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  min-height: 40vh;
+  width: 25%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+.animador {
+  background-image: url("https://purepng.com/public/uploads/large/balloons-c9p.png");
+}
+.salon {
+  background-image: url("https://www.inolvidables15.com/assets/images/2087_18960fotoalgr.jpg");
+}
+.admin {
+  background-image: url("https://img.freepik.com/vector-premium/icono-plano-administrador-tareas_9206-4758.jpg");
+}
+.p-c-s-picture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  flex-grow: 1;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.p-c-s-data-top >  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+  }
+  .p-c-s-data-top >  h2 > span {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    animation: colored 1.25s infinite;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+  }
+  .p-c-s-data-top >  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: white;
+  }
+  .p-c-s-data-top > h4 {
     font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+.p-c-s-data-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  text-align: center;
+} 
+.p-c-s-data-bottom >  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+  }
+  .p-c-s-data-bottom > h3 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: white;
+  }
+  .p-c-s-data-bottom > button {
+    width: 120px;
     height: 40px;
     background-color: #9aff78;
     border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    margin: 20px 0px;
-    cursor:default;
-    line-height: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0px;
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
     z-index: 4;
+  }
+    .p-c-s-data-bottom > button:hover {
+      background-color: #78ff9a;
+    }
+  
+
+@keyframes colored {
+  0% {
+    background-color: #9aff78;
+  }
+  50% {
+    background-color: #78ff9a;
+  }
+  100% {
+    background-color: #9aff78;
+  }
 }
-.alert-account-verified{
-    width: 80%;
-    font-size: 16px;
-    height: 40px;
-    background-color: #ff78fd;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    margin: 20px 0px;
-    cursor:default;
-    line-height: 40px;
-    transition: all 0.3s ease-in-out;
-    z-index: 4;
+.funway-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin: 20px 0px;
 }
-.alert-account-blocked{
-    width: 80%;
-    font-size: 16px;
-    height: 40px;
-    background-color: #ff7878;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    margin: 20px 0px;
-    cursor:default;
-    line-height: 40px;
-    transition: all 0.3s ease-in-out;
-    z-index: 4;
+.funway-table > thead {
+  background-color: #9aff78;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+}
+.funway-table > tbody {
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+}
+.funway-table > tr {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.profile-card-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: start;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-    height: 100%;
-    min-height: 40vh;
-    width: 25%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 10px;
+.funway-table > tr:hover {
+  background-color: #9aff78;
+  color: black;
 }
-.animador{
-    background-image: url("https://purepng.com/public/uploads/large/balloons-c9p.png");
-}
-.salon{
-    background-image: url("https://www.inolvidables15.com/assets/images/2087_18960fotoalgr.jpg");
-}
-.admin{
-    background-image: url("https://img.freepik.com/vector-premium/icono-plano-administrador-tareas_9206-4758.jpg");
-}
-.p-c-s-picture {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: space-evenly;
-    gap: 2rem;
-    flex-grow: 1;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.600);
-    h2{
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: white;
-    }
-    h2 > span{
-        font-size: 18px;
-        font-weight: 400;
-        margin-bottom: 10px;
-        animation: colored 1.25s infinite;
-        color: black;
-        padding: 5px 10px;
-        text-align: center;
-    }
-    h3{
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 10px;
-        color: white;
-    }
-    h4{
-        font-size: 16px;
-        font-weight: 400;
-        margin-bottom: 10px;
-        color: white;
-    }
-}
-.p-c-s-data-bottom{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: flex-end;
-    flex-grow: 1;
-    text-align: center;
-    h2{
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: white;
-    }
-    h3{
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 10px;
-        color: white;
-    }
-    button{
-        width: 120px;
-        height: 40px;
-        background-color: #9aff78;
-        border-radius: 15px;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        margin: 5px 0px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        z-index: 4;
-        &:hover{
-            background-color: #78ff9a;
-        }
-    }
-}
-
-@keyframes colored{
-    0%{
-        background-color: #9aff78;
-    }
-    50%{
-        background-color: #78ff9a;
-    }
-    100%{
-        background-color: #9aff78;
-    }
-}
-.funway-table{
-        width: 100%;
-        border-collapse: collapse;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-        margin: 20px 0px;
-        thead{
-            background-color: #9aff78;
-            color: black;
-            font-size: 16px;
-            font-weight: 600;
-        }
-        tbody{
-            background-color: white;
-            color: black;
-            font-size: 14px;
-            font-weight: 400;
-            tr{
-                transition: all 0.3s ease-in-out;
-                cursor: pointer;
-                &:hover{
-                    background-color: #9aff78;
-                    color: black;
-                }
-            }
-        }
-    }
-

@@ -12,8 +12,8 @@ export default function AdminHome() {
     navigate(`/event?id=${id}`);
   }
   const [userName, setUserName] = useState('');
-  const user = useSelector(state => state.user.user)
-  const role = useSelector(state => state.user.user.role)
+  const user = useSelector(state => state?.user?.user)
+  const role = useSelector(state => state?.user?.user.role)
   function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -61,7 +61,7 @@ export default function AdminHome() {
               <div className="p-c-s-picture">
                 <div className="p-c-s-data-top">
                   <h2>{userCapitalized}</h2>
-                  <h2><span>{role.toUpperCase()}</span></h2>
+                  <h2><span>{role?.toUpperCase()}</span></h2>
                 </div>
                 <div className="p-c-s-data-bottom">
                   {

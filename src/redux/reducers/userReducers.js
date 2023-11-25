@@ -31,7 +31,7 @@ const userReducers = createReducer(initialState, (builder) => {
             const { success, response } = action.payload;
             if (success) {
                 const { user, token } = response;
-                return {  user: user.user, id: user.id, name: user.name, email: user.email, role: user.role, online: true, token: token, verified: user.verified, eventsCreated: user.eventsCreated};
+                return { ...state, user: user.user, id: user.id, name: user.name, email: user.email, role: user.role, online: true, token: token, verified: user.verified, eventsCreated: user.eventsCreated};
             } else {
                 return { ...state, message: response };
             }

@@ -1,0 +1,85 @@
+.all-users-main{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.all-users-title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #009879;
+    margin-bottom: 20px;
+}
+
+.all-users-table{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-size: 18px;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.all-users-table thead tr{
+    background-color: #009879;
+    color: #fff;
+}
+.all-users-table th, .all-users-table td{
+    padding: 12px 15px;
+}
+.all-users-table tbody tr{
+    border-bottom: 1px solid #ddd;
+}
+.all-users-table tbody tr:last-of-type{
+    border-bottom: none;
+}
+.all-users-table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+.all-users-table tbody tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}
+.all-users-table tbody tr.active-row{
+    font-weight: bold;
+    color: #009879;
+}
+.all-users-table tbody tr.active-row:hover{
+    font-weight: bold;
+    color: #009879;
+    background-color: #f3f3f3;
+}
+.all-users-table tbody tr:hover{
+    background-color: #f3f3f3;
+}
+.all-users-table tbody tr td a{
+    color: #009879;
+    font-weight: bold;
+}
+.all-users-table tbody tr td a:hover{
+    color: #009879;
+    text-decoration: underline;
+}
+.aau-btn{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #009879;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.aau-btn:hover{
+    background-color: #fff;
+    color: #009879;
+    border: 1px solid #009879;
+}

@@ -30,7 +30,7 @@ export default function AboutUs() {
                 <h2>{name}</h2>
                 <h3>{description}</h3>
                 <div className='review-card-rating'>
-                    <h3>{rating}</h3>
+                    <h3 >{rating}</h3>
             </div>
         </div>
         </div>
@@ -41,12 +41,8 @@ export default function AboutUs() {
         <main style={{display:'flex',flexDirection:'column'}}>
             <div className='block1-aboutus'>
                 <div className='b1-au-bck-img'>
-                    <div className='col1-b1-au'>
-                        <h1><span>Somos</span> <br />FunWay Eventos</h1>
-                        <h2 style={{width:'70%'}}>Generando sonrisas y momentos inolvidables desde 2019.</h2>
-                    </div>
-                    <div className='col2-b1-au'>
-                        <img src="https://www.plataforma5.la/static/media/aboutUsHeroMainImg.0ad7510c758827b47eb0.webp" alt="FunWays Team" />
+                    <div className='overlay-black'>
+                        <h1 style={{fontWeight:'800',color:'white',fontSize:'4rem'}}>Somos FunWay Eventos</h1>
                     </div>
                 </div>
             </div>
@@ -68,7 +64,7 @@ export default function AboutUs() {
                       <ReviewCard name='Selena Gomez' description='10/10. Excelente trato y excelentes animadores. Una buena onda innata que se transmite y se devuelve con sonrisas.' rating='4⭐' image='https://media.vogue.mx/photos/5df12f6df1bbef0008e5a4f1/1:1/w_2258,h_2258,c_limit/Estilo%20de%20Selena%20Gomez.jpg' /> 
                       <ReviewCard name='Sandra Muñoz' description='Me encantó. A mis hijas las volvió locas ese Harry Potter con sus burbujas jajajaja.' rating='5⭐' image='https://www.famousbirthdays.com/headshots/sandra-munoz-4.jpg' /> 
                       <ReviewCard name='Paola Barale' description='Enzo y su equipo hacen un trabajo espectacular, los volveria a contratar de nuevo.' rating='4⭐' image='https://upload.wikimedia.org/wikipedia/it/2/23/Paola_Barale_-_1992.jpg' />
-                      <FaAngleDoubleRight height="55px"/>
+                      <FaAngleDoubleRight style={{position:'relative',bottom:'0'}} height="55px"/>
                     </div>
                 </div>
             </div>
@@ -80,7 +76,7 @@ export default function AboutUs() {
                     <span className='AR1'>INA</span>
                 </h2>
                 <h3 style={{width:'50%'}}>Es momento de tomar la decisión y elegír una empresa que se preocupa por tus hijos, y deja momentos unicos e inolvidables en sus memorias. </h3>
-               <Link to='/contact'>
+               <Link className='Link-DOM' to='/contact'>
                <button className='btn-contact-us'>¡LOS QUIERO!</button>
                </Link> 
             </div>

@@ -15,6 +15,8 @@ export default function AdminHome() {
   const [userName, setUserName] = useState('');
   const user = useSelector(state => state?.user?.user)
   const role = useSelector(state => state?.user?.user.role)
+  const verified = useSelector(state => state?.user?.user.verified)
+  console.log(verified)
   function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -44,19 +46,21 @@ export default function AdminHome() {
         ]} />
       <div className="AdminHome" style={{ maxWidth: '100%' }}>
         <main style={{ maxWidth: '100%', width: '100%', minHeight: '90vh', height: 'auto', display: 'flex', alignContent: 'center', flexDirection: 'column', flexWrap: 'wrap' }}>
-          {user?.verified === 'true' ? (
+          {verified === 'true' ? (
             <div className="alert-account-verified" style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
               <p>Tu cuenta fue verificada y aprobada. Puedes utilizar sin restricciones la plataforma.</p>
             </div>
-          ) : user?.verified === 'banned' ? (
+          ) : verified === 'banned' ? (
             <div className="alert-account-blocked" style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
               <p>Tu cuenta fue bloqueada por un administrador. No puedes utilizar la plataforma.</p>
             </div>
-          ) : user?.verified === 'false' (
+          ) : verified === 'false' ? (
             <div className="alert-account" style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
               <p>Tu cuenta aún está pendiente de revisión y aprobación. No podrás usar la plataforma hasta ser verificado.</p>
             </div>
-          )}
+          ) :  <div className="alert-account" style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
+          <p style={{visibility:'hidden'}}>Tu cuenta aún está pendiente de revisión y aprobación. No podrás usar la plataforma hasta ser verificado.</p>
+        </div>}
           <div style={{ display: 'flex', flexDirection: 'row', gap: '3rem', flexWrap: 'wrap' }}>
             <section className={`profile-card-section ${role}`}>
               <div className="p-c-s-picture">
@@ -70,7 +74,7 @@ export default function AdminHome() {
                       <>
                         <h2>2</h2>
                         <h3>Eventos creados</h3>
-                        <button><Link style={{textDecoration:'none',color:'black'}} to='/menu/my-events'>Ver todos</Link></button>
+                        <button><Link style={{ textDecoration: 'none', color: 'black' }} to='/menu/my-events'>Ver todos</Link></button>
                       </>
                       :
                       role === 'admin' ?
